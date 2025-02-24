@@ -33,7 +33,7 @@ NUS_ME5413_Homework2_Localisation/task1
 python task1.py
 ```
 This will run the `solve_icp_with_known_correspondence` function and display the results.
-![solve_icp_with_known_correspondence result](./img/task1.png)
+![solve_icp_with_known_correspondence result](./doc/task1.png)
 
 #### 2. Without Known Correspondence:
 
@@ -50,7 +50,7 @@ Then run:
 python task1.py
 ```
 This will run the `solve_icp_without_known_correspondence` function and display the results.
-![solve_icp_without_known_correspondence result](./img/task2_100_0.1.png)
+![solve_icp_without_known_correspondence result](./doc/task2_100_0.1.png)
 
 ### Task Description
 #### Task 1.1: ICP with Known Correspondence
