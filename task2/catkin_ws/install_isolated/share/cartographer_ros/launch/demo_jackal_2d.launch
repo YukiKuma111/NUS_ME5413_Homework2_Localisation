@@ -21,6 +21,11 @@
 
   <node name="rviz" pkg="rviz" type="rviz" required="true"
       args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
-  <node name="playbag" pkg="rosbag" type="play"
-      args="--clock --pause $(arg bag_filename)" />
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization" clear_params="true" output="screen">
+    <param name="odom_frame" value="odom"/>
+    <param name="base_link_frame" value="base_link"/>
+    <param name="world_frame" value="odom"/>
+    <param name="publish_tf" value="true"/>
+    <remap from="odometry/filtered" to="/odometry/filtered"/>
+</node>
 </launch>

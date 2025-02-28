@@ -27,10 +27,10 @@
           -configuration_basename jackal_robot.lua"
       output="screen">
     <remap from="echoes" to="horizontal_laser_2d" />
-    <remap from="scan" to="/scan"/>                   <!-- 激光雷达 -->
-    <remap from="imu" to="/imu"/>                     <!-- IMU -->
-    <remap from="odom" to="/odometry/filtered"/>      <!-- 里程计 -->
-    <remap from="points2" to="/velodyne"/>            <!-- 点云数据 -->
+    <remap from="scan" to="/scan"/>
+    <remap from="imu" to="/imu"/>
+    <remap from="odom" to="/odometry/filtered"/>
+    <remap from="points2" to="/velodyne"/>
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"

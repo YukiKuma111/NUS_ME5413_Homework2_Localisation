@@ -98,3 +98,13 @@ The __ICP without known correspondence__ highlights the importance of good initi
 Through this task, the complexities of point cloud registration using the ICP method were explored. While known correspondence simplifies the problem, real-world applications often require iterative refinement due to unknown correspondences. This task also demonstrated the significance of convergence thresholds and iteration limits for achieving precise alignment.
 
 ## Task 2
+
+[x] Install and build Cartographer, abseil-cpp, ceres-solver, evo
+
+[x] Run Cartographer, save map, and evaluate result by evo
+
+[ ] Trajectory swing, need fix
+
+[ ] 2D done, 3D not yet
+
+[ ] Adjust parameter
