@@ -99,12 +99,13 @@ Through this task, the complexities of point cloud registration using the ICP me
 
 ## Task 2
 
-[x] Install and build Cartographer, abseil-cpp, ceres-solver, evo
+ - [x] Install and build Cartographer, abseil-cpp, ceres-solver, evo
 
-[x] Run Cartographer, save map, and evaluate result by evo
+ - [x] Run Cartographer, save map, and evaluate result by evo
 
-[ ] Trajectory swing, need fix
+ - [ ] Trajectory swing, need fix
 
-[ ] 2D done, 3D not yet
+ - [ ] 2D done, 3D not yet
 
-[ ] Adjust parameter
+ - [ ] Adjust parameter
+ 
