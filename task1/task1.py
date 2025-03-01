@@ -1,6 +1,7 @@
 import numpy as np
 import open3d as o3d
 import datetime
+import matplotlib.pyplot as plt
 from scipy.spatial import KDTree
 
 
@@ -148,6 +149,7 @@ def solve_icp_without_known_correspondence(
     """
     point_cloud2_temp = point_cloud2.copy()
     T_1_2accumulated = np.eye(4)
+    mean_errors = []
 
     # viz
     axis_pcd = o3d.geometry.TriangleMesh.create_coordinate_frame(
@@ -201,6 +203,7 @@ def solve_icp_without_known_correspondence(
         # 5. Calculate mean distance between the point clouds
         mean_distance = mean_dist(point_cloud1, point_cloud2_temp)
         print("mean_error= " + str(mean_distance))
+        mean_errors.append(mean_distance)
 
         # 6. Update visualization
         pcd2_transed = o3d.geometry.PointCloud()
@@ -219,6 +222,15 @@ def solve_icp_without_known_correspondence(
         if i == n_iter - 1:
             print("------- reach iteration limit -------")
 
+    plt.figure()
+    plt.plot(range(1, len(mean_errors) + 1), mean_errors, marker='.')
+    plt.xlabel('Iteration')
+    plt.ylabel('Mean Error')
+    plt.title('ICP Convergence Analysis')
+    plt.grid()
+    plt.savefig(f"ICP_Convergence_Analysis_in_{n_iter}_iteration.png")
+    plt.show()
+    
     print("time cost: " + str(total_time_cost) + " s")
 
     vis.destroy_window()
@@ -256,8 +268,9 @@ def main():
 
     # uncomment the lines following task 1 or 2 to run the corresponding task
     # task 1:
-    solve_icp_with_known_correspondence(points1, points2)
+    # solve_icp_with_known_correspondence(points1, points2)
     # task 2:
+    solve_icp_without_known_correspondence(points1, points2, n_iter=50, threshold=0.1)
     # solve_icp_without_known_correspondence(points1, points2, n_iter=100, threshold=0.1)
     # solve_icp_without_known_correspondence(points1, points2, n_iter=200, threshold=0.01)
 
