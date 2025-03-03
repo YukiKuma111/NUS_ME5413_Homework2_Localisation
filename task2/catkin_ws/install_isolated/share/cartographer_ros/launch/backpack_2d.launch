@@ -24,13 +24,9 @@
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find cartographer_ros)/configuration_files
-          -configuration_basename jackal_robot.lua"
+          -configuration_basename backpack_2d.lua"
       output="screen">
     <remap from="echoes" to="horizontal_laser_2d" />
-    <remap from="scan" to="/scan"/>
-    <remap from="imu" to="/imu"/>
-    <remap from="odom" to="/odometry/filtered"/>
-    <remap from="points2" to="/velodyne"/>
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
