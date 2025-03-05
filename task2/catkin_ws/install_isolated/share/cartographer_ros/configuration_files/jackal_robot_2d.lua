@@ -43,23 +43,9 @@ options = {
   landmarks_sampling_ratio = 1.,
 }
 
-MAP_BUILDER.num_background_threads = 4 
 MAP_BUILDER.use_trajectory_builder_2d = true
 
--- TRAJECTORY_BUILDER_2D.num_accumulated_range_data = 10
-TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
-TRAJECTORY_BUILDER_2D.motion_filter.max_distance_meters = 0.2
-TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians = math.rad(1.0)
-TRAJECTORY_BUILDER_2D.submaps.num_range_data = 5000
-TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = 0.3
-TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.angular_search_window = math.rad(25.)
-TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.translation_delta_cost_weight = 10.
-TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.rotation_delta_cost_weight = 3.
-
-POSE_GRAPH.optimization_problem.huber_scale = 1e2
-POSE_GRAPH.optimize_every_n_nodes = 1000
-POSE_GRAPH.constraint_builder.min_score = 0.65
-POSE_GRAPH.constraint_builder.global_localization_min_score = 0.7
-POSE_GRAPH.constraint_builder.max_constraint_distance = 30.
+TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true --import
+TRAJECTORY_BUILDER_2D.submaps.num_range_data = 5000 --import
 
 return options
