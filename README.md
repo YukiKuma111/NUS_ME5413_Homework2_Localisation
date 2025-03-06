@@ -142,22 +142,26 @@ sudo apt-get install tmux
 
 1. Clone the repository:
 
-```
-git clone https://github.com/YukiKuma111/NUS_ME5413_Homework2_Localisation.git
-cd NUS_ME5413_Homework2_Localisation/task2/
-```
+    ```
+    git clone https://github.com/YukiKuma111/NUS_ME5413_Homework2_Localisation.git
+    cd NUS_ME5413_Homework2_Localisation/task2/
+    ```
+    If you do not need large file task2.bag, please use the following command:
+    ```
+    GIT_LFS_SKIP_SMUDGE=1 git clone <repository-url>
+    ```
 
 2. Ensure `run_task2.bash` has execution permissions:
 
-```
-chmod +x run_task2.bash
-```
+    ```
+    chmod +x run_task2.bash
+    ```
 
 3. Run the script:
 
-```
-bash run_task2.bash
-```
+    ```
+    bash run_task2.bash
+    ```
 
 This script will:
 
