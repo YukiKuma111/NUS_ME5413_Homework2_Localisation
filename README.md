@@ -27,6 +27,13 @@ NUS_ME5413_Homework2_Localisation/task1
 
 ### How to Run
 
+Clone the repository:
+
+```
+git clone https://github.com/YukiKuma111/NUS_ME5413_Homework2_Localisation.git
+cd NUS_ME5413_Homework2_Localisation/task1/
+```
+
 #### 1. With Known Correspondence:
 
 ```
@@ -99,13 +106,82 @@ Through this task, the complexities of point cloud registration using the ICP me
 
 ## Task 2
 
- - [x] Install and build Cartographer, abseil-cpp, ceres-solver, evo
+### Introduction
 
- - [x] Run Cartographer, save map, and evaluate result by evo
+This repository contains the solution for Task 2 of the ME5413 Homework 2 assignment, which involves performing 2D SLAM using Google Cartographer on a ROS Noetic environment. The simulated robot used is a “Jackal” Unmanned Ground Vehicle equipped with an IMU, a 2D LiDAR (Sick TIM551), and a 3D LiDAR (Velodyne VLP16). The sensor data is provided in a ROS bag file (`task2.bag`). The performance of the SLAM system is evaluated using the evo tool by comparing the generated trajectory against ground truth data.
 
- - [ ] Trajectory swing, need fix
+### Prerequisites
 
- - [ ] 2D done, 3D not yet
+ - Ubuntu 20.04
+ - ROS Noetic
+ - Google Cartographer ROS
+ - evo (for evaluation)
+ - tmux
 
- - [ ] Adjust parameter
+Ensure that Cartographer, evo and tmux are correctly installed:
+
+[Cartographer Installation Guide](https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html)
+
+[evo Installation Guide](https://github.com/MichaelGrupp/evo?tab=readme-ov-file#installation--upgrade)
+
+```
+sudo apt-get install tmux
+```
+
+### Folder Structure
+```
+.
+├── catkin_ws
+│   └── src
+├── run_task2.bash
+└── task2
+    └── task2.bag
+```
+
+### How to Run
+
+1. Clone the repository:
+
+```
+git clone https://github.com/YukiKuma111/NUS_ME5413_Homework2_Localisation.git
+cd NUS_ME5413_Homework2_Localisation/task2/
+```
+
+2. Ensure `run_task2.bash` has execution permissions:
+
+```
+chmod +x run_task2.bash
+```
+
+3. Run the script:
+
+```
+bash run_task2.bash
+```
+
+This script will:
+
+ - Launch roscore and set simulated time.
+ - Compile the workspace and start Cartographer.
+ - Play the ROS bag file (`task2.bag`).
+ - Record the SLAM process into a new ROS bag.
+ - Save the generated map as a pgm file and a yaml file.
+ - Evaluate SLAM performance using the evo tool and save the results as a zip.
+
+### Tuning
+
+In configuration file [`jackal_robot.lua`](./task2/catkin_ws/install_isolated/share/cartographer_ros/configuration_files/jackal_robot_2d.lua), there are two tuned parameters assist Cartographer calculate a significant great output:
+
+ - TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching
+ - TRAJECTORY_BUILDER_2D.submaps.num_range_data
+
+![map](./doc/tuned_param_map.png)
+![map](./doc/tuned_map.png)
+![map](./doc/tuned_raw.png)
+
+### Future Work
+
+ - [x] 2D SLAM
+ - [ ] 3D SLAM
+ - [ ] Adjust 3D parameters
  
