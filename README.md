@@ -148,7 +148,7 @@ sudo apt-get install tmux
     ```
     If you do not need large file task2.bag, please use the following command:
     ```
-    GIT_LFS_SKIP_SMUDGE=1 git clone <repository-url>
+    GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/YukiKuma111/NUS_ME5413_Homework2_Localisation.git
     ```
 
 2. Ensure `run_task2.bash` has execution permissions:
