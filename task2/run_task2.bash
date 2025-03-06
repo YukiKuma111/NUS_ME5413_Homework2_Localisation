@@ -87,4 +87,4 @@ pkill -f roscore
 echo "Start evo to evaluate ..."
 
 # Start evo_ape
-evo_ape bag result/${TIMESTAMP}_task2_cartographer_result.bag /ground_truth /tf:map.base_link --plot --align --plot_mode xy --save_results result/${TIMESTAMP}_task2_cartographer_result.zip
+evo_ape bag result/${TIMESTAMP}_task2_cartographer_result.bag /ground_truth /tf:map.base_link --plot --align --plot_mode xy --save_results result/${TIMESTAMP}_task2_cartographer_result.zip --save_plot result/${TIMESTAMP}_task2_cartographer_result.png

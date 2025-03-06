@@ -57,7 +57,7 @@ Then run:
 python task1.py
 ```
 This will run the `solve_icp_without_known_correspondence` function and display the results.
-![solve_icp_without_known_correspondence result](./doc/task2_100_0.1.png)
+![solve_icp_without_known_correspondence result](./doc/task1.2_30_0.01.png)
 
 ### Task Description
 #### Task 1.1: ICP with Known Correspondence
@@ -176,12 +176,13 @@ This script will:
 
 In configuration file [`jackal_robot.lua`](./task2/catkin_ws/install_isolated/share/cartographer_ros/configuration_files/jackal_robot_2d.lua), there are two tuned parameters assist Cartographer calculate a significant great output:
 
+ - use pose extrapolator = false
  - TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching
  - TRAJECTORY_BUILDER_2D.submaps.num_range_data
 
 ![map](./doc/tuned_param_map.png)
-![map](./doc/tuned_map.png)
-![map](./doc/tuned_raw.png)
+![map](./doc/goodmap.png)
+![map](./doc/goodraw.png)
 
 ### Future Work
 
