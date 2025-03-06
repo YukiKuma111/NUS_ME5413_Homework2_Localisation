@@ -2,7 +2,8 @@ import numpy as np
 import open3d as o3d
 import datetime
 import matplotlib.pyplot as plt
-from scipy.spatial import KDTree
+import time
+from scipy.spatial import KDTree, cKDTree
 
 
 def icp_core(point_cloud1, point_cloud2):
@@ -128,9 +129,9 @@ def estimate_correspondence(point_cloud1, point_cloud2):
     """
     Estimate closest point correspondences between two point clouds using KD-Tree.
     """
-    tree = KDTree(point_cloud2)
-    _, indices = tree.query(point_cloud1, k=1)
-    point_cloud2_reordered = point_cloud2[indices.flatten()]
+    tree = KDTree(point_cloud1)
+    _, indices = tree.query(point_cloud2, k=1)
+    point_cloud2_reordered = point_cloud1[indices.flatten()]
 
     save_intermediate_result = False
     if save_intermediate_result:
@@ -268,11 +269,10 @@ def main():
 
     # uncomment the lines following task 1 or 2 to run the corresponding task
     # task 1:
-    # solve_icp_with_known_correspondence(points1, points2)
+    solve_icp_with_known_correspondence(points1, points2)
     # task 2:
-    solve_icp_without_known_correspondence(points1, points2, n_iter=50, threshold=0.1)
-    # solve_icp_without_known_correspondence(points1, points2, n_iter=100, threshold=0.1)
-    # solve_icp_without_known_correspondence(points1, points2, n_iter=200, threshold=0.01)
+    # solve_icp_without_known_correspondence(points1, points2, n_iter=30, threshold=0.1)
+    # solve_icp_without_known_correspondence(points1, points2, n_iter=30, threshold=0.01)
 
 
 if __name__ == "__main__":
