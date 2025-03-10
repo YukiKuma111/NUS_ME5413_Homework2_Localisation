@@ -180,7 +180,6 @@ In configuration file [`jackal_robot.lua`](./task2/catkin_ws/install_isolated/sh
  - TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching
  - TRAJECTORY_BUILDER_2D.submaps.num_range_data
 
-![map](./doc/tuned_param_map.png)
 ![map](./doc/goodmap.png)
 ![map](./doc/goodraw.png)
 
